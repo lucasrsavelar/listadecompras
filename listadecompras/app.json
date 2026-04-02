@@ -1,5 +1,9 @@
 {
   "expo": {
+    "name": "Lista de Compras",
+    "slug": "lista-de-compras",
+    "version": "0.0.1",
+    "icon": "./src/assets/icon.png",
     "extra": {
       "eas": {
         "projectId": "0d6ff96b-5893-4fc4-bbe0-c5817d201bd8"
