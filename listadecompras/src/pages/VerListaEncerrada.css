@@ -1,0 +1,234 @@
+/* ===== Ver Lista Encerrada Page Styles ===== */
+
+.ver-enc-container {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-primary);
+}
+
+/* --- Header --- */
+.ver-enc-header {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1rem;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  gap: 0.5rem;
+}
+
+.ver-enc-back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  border-radius: 0.75rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.ver-enc-back:hover {
+  background: var(--bg-tertiary);
+}
+
+.ver-enc-back:active {
+  background: var(--border-color);
+}
+
+.ver-enc-title {
+  flex: 1;
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.ver-enc-header-spacer {
+  width: 40px;
+}
+
+/* --- Content --- */
+.ver-enc-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem 1.25rem 2rem;
+  gap: 1rem;
+}
+
+/* --- Nome --- */
+.ver-enc-nome {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.75rem;
+  color: var(--color-primary-light);
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.ver-enc-nome svg {
+  flex-shrink: 0;
+  color: var(--text-muted);
+}
+
+/* --- Badge --- */
+.ver-enc-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.75rem;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: 100px;
+  color: #f59e0b;
+  font-size: 0.8rem;
+  font-weight: 600;
+  align-self: center;
+}
+
+/* --- Loading --- */
+.ver-enc-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 2rem 0;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.ver-enc-loading-spinner {
+  width: 28px;
+  height: 28px;
+  border: 3px solid var(--border-color);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: verEncSpin 0.8s linear infinite;
+}
+
+@keyframes verEncSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* --- Divisor --- */
+.ver-enc-divisor {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0.25rem 0;
+}
+
+.ver-enc-divisor::before,
+.ver-enc-divisor::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-color);
+}
+
+.ver-enc-divisor span {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* --- Itens --- */
+.ver-enc-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-top: 0.5rem;
+}
+
+.ver-enc-item-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.75rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 0.65rem;
+}
+
+.ver-enc-item-texto {
+  flex: 1;
+  min-width: 0;
+  font-size: 0.8rem;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ver-enc-item-nome {
+  font-weight: 600;
+}
+
+.ver-enc-item-eq {
+  margin: 0 0.25rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.ver-enc-item-detalhe {
+  color: var(--text-secondary);
+}
+
+/* Check icon for marked items */
+.ver-enc-item-check-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  color: #10b981;
+}
+
+/* Marcado */
+.ver-enc-item-row.marcado {
+  opacity: 0.55;
+}
+
+.ver-enc-item-row.marcado .ver-enc-item-texto {
+  text-decoration: line-through;
+}
+
+.ver-enc-item-row.marcado .ver-enc-item-nome,
+.ver-enc-item-row.marcado .ver-enc-item-detalhe,
+.ver-enc-item-row.marcado .ver-enc-item-eq {
+  color: var(--text-muted);
+}
+
+/* --- Vazia --- */
+.ver-enc-vazia {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 2.5rem 1rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.ver-enc-vazia svg {
+  opacity: 0.4;
+  margin-bottom: 0.5rem;
+}
+
+.ver-enc-vazia p {
+  margin: 0;
+  font-size: 0.9rem;
+}

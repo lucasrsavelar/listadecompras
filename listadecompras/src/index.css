@@ -1,0 +1,76 @@
+/* ===== Google Fonts ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700&display=swap');
+
+/* ===== Design System Tokens ===== */
+:root {
+  /* Colors */
+  --color-primary: #6366f1;
+  --color-primary-dark: #4f46e5;
+  --color-primary-light: #818cf8;
+
+  /* Gradient */
+  --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+
+  /* Background */
+  --bg-primary: #0f1117;
+  --bg-secondary: #161822;
+  --bg-tertiary: #1e2030;
+
+  /* Text */
+  --text-primary: #f1f2f6;
+  --text-secondary: #c4c7d4;
+  --text-muted: #6b7194;
+
+  /* Border */
+  --border-color: #2a2d3e;
+
+  /* Typography */
+  --font-heading: 'Outfit', 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+}
+
+/* ===== Reset & Base ===== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.5;
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+/* Mobile viewport fix */
+#root {
+  min-height: 100dvh;
+}
+
+/* Smooth scrolling */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Remove default tap highlight on mobile */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Selection */
+::selection {
+  background: var(--color-primary);
+  color: white;
+}

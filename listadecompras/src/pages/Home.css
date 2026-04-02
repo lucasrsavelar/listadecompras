@@ -1,0 +1,309 @@
+/* ===== Home Page Styles ===== */
+
+.home-container {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+/* --- Header --- */
+.home-header {
+  padding: 3rem 1.5rem 2rem;
+  text-align: center;
+  background: var(--gradient-primary);
+  border-radius: 0 0 2rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.home-header::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -20%;
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.home-header::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -15%;
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.home-header-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  color: white;
+  margin-bottom: 1rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.home-title {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 0.35rem;
+  letter-spacing: -0.02em;
+}
+
+.home-subtitle {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+  font-weight: 400;
+}
+
+/* --- Content --- */
+.home-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 1.5rem 6rem;
+}
+
+/* --- Loading --- */
+.home-loading {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.home-loading-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--border-color);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* --- Empty State --- */
+.home-empty-state {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.home-empty-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  background: var(--bg-tertiary);
+  border-radius: 50%;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+  position: relative;
+}
+
+.home-empty-icon::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px dashed var(--border-color);
+  animation: spin 20s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.home-empty-text {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 0.35rem;
+}
+
+.home-empty-hint {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* --- Lista de Cards --- */
+.home-listas {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.home-listas-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  margin: 0 0 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.home-listas-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.home-lista-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 1rem 1rem;
+  background: var(--bg-secondary);
+  border: 1.5px solid var(--border-color);
+  border-radius: 1rem;
+  cursor: pointer;
+  font-family: var(--font-body);
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.home-lista-card:hover {
+  border-color: var(--color-primary-light);
+  background: var(--bg-tertiary);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.home-lista-card:active {
+  transform: scale(0.98);
+  box-shadow: none;
+}
+
+.home-lista-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(99, 102, 241, 0.12);
+  border-radius: 0.65rem;
+  color: var(--color-primary-light);
+  flex-shrink: 0;
+}
+
+.home-lista-card-title {
+  flex: 1;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.home-lista-card-arrow {
+  flex-shrink: 0;
+  color: var(--text-muted);
+  transition: transform 0.2s ease;
+}
+
+.home-lista-card:hover .home-lista-card-arrow {
+  transform: translateX(2px);
+  color: var(--color-primary-light);
+}
+
+/* --- FAB (Floating Action Button) --- */
+.home-fab {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.75rem;
+  background: var(--gradient-primary);
+  color: white;
+  border: none;
+  border-radius: 100px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow:
+    0 4px 15px rgba(99, 102, 241, 0.4),
+    0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10;
+  letter-spacing: 0.01em;
+}
+
+.home-fab:hover {
+  transform: translateX(-50%) translateY(-2px);
+  box-shadow:
+    0 8px 25px rgba(99, 102, 241, 0.5),
+    0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.home-fab:active {
+  transform: translateX(-50%) scale(0.97);
+  box-shadow:
+    0 2px 10px rgba(99, 102, 241, 0.35),
+    0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.home-fab svg {
+  flex-shrink: 0;
+}
+
+/* --- Seção Listas Encerradas --- */
+.home-encerradas {
+  margin-top: 0.5rem;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.home-encerradas-icon {
+  background: rgba(245, 158, 11, 0.12) !important;
+  color: #f59e0b !important;
+}
+
+.home-encerradas-card {
+  border-style: dashed !important;
+}

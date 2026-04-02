@@ -1,0 +1,166 @@
+/* ===== CriarListaForm Styles ===== */
+
+/* --- Backdrop --- */
+.criar-lista-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 20;
+  animation: backdropIn 0.25s ease-out;
+}
+
+@keyframes backdropIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* --- Bottom Sheet --- */
+.criar-lista-sheet {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  border-radius: 1.5rem 1.5rem 0 0;
+  padding: 0.75rem 1.5rem 2rem;
+  z-index: 30;
+  animation: sheetSlideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes sheetSlideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+/* Handle (puxador visual) */
+.criar-lista-handle {
+  width: 40px;
+  height: 4px;
+  background: var(--border-color);
+  border-radius: 100px;
+  margin: 0 auto 1rem;
+}
+
+/* --- Título --- */
+.criar-lista-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 1.25rem;
+}
+
+/* --- Form Fields --- */
+.criar-lista-field {
+  margin-bottom: 1rem;
+}
+
+.criar-lista-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 0.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.criar-lista-optional {
+  font-weight: 400;
+  text-transform: none;
+  color: var(--text-muted);
+  letter-spacing: normal;
+}
+
+.criar-lista-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--bg-tertiary);
+  border: 1.5px solid var(--border-color);
+  border-radius: 0.75rem;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.criar-lista-input:focus {
+  border-color: var(--color-primary);
+}
+
+.criar-lista-input::placeholder {
+  color: var(--text-muted);
+}
+
+/* Date input color-scheme for dark mode */
+.criar-lista-input[type="date"] {
+  color-scheme: dark;
+}
+
+/* --- Erro --- */
+.criar-lista-erro {
+  font-size: 0.8rem;
+  color: #ef4444;
+  margin: 0 0 0.75rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(239, 68, 68, 0.1);
+  border-radius: 0.5rem;
+  border-left: 3px solid #ef4444;
+}
+
+/* --- Actions --- */
+.criar-lista-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.criar-lista-btn-cancelar,
+.criar-lista-btn-criar {
+  flex: 1;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 0.75rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.criar-lista-btn-cancelar {
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  border: 1.5px solid var(--border-color);
+}
+
+.criar-lista-btn-cancelar:hover {
+  background: var(--border-color);
+}
+
+.criar-lista-btn-cancelar:active {
+  transform: scale(0.98);
+}
+
+.criar-lista-btn-criar {
+  background: var(--gradient-primary);
+  color: white;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
+}
+
+.criar-lista-btn-criar:hover {
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.45);
+}
+
+.criar-lista-btn-criar:active {
+  transform: scale(0.98);
+}
+
+.criar-lista-btn-criar:disabled,
+.criar-lista-btn-cancelar:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

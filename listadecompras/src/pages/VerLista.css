@@ -1,0 +1,404 @@
+/* ===== Ver Lista Page Styles ===== */
+
+.ver-lista-container {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-primary);
+}
+
+/* --- Header --- */
+.ver-lista-header {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1rem;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  gap: 0.5rem;
+}
+
+.ver-lista-back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  border-radius: 0.75rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.ver-lista-back:hover {
+  background: var(--bg-tertiary);
+}
+
+.ver-lista-back:active {
+  background: var(--border-color);
+}
+
+.ver-lista-title {
+  flex: 1;
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.ver-lista-header-spacer {
+  width: 40px;
+}
+
+/* --- Content --- */
+.ver-lista-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem 1.25rem 2rem;
+  gap: 1rem;
+}
+
+/* --- Nome da Lista --- */
+.ver-lista-nome {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.75rem;
+  color: var(--color-primary-light);
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.ver-lista-nome svg {
+  flex-shrink: 0;
+  color: var(--text-muted);
+}
+
+/* --- Botão Editar --- */
+.ver-lista-btn-editar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 100%;
+  padding: 0.7rem;
+  background: var(--bg-secondary);
+  color: var(--color-primary-light);
+  border: 1.5px solid var(--color-primary);
+  border-radius: 0.75rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ver-lista-btn-editar:hover {
+  background: rgba(99, 102, 241, 0.1);
+}
+
+.ver-lista-btn-editar:active {
+  transform: scale(0.98);
+}
+
+/* --- Loading --- */
+.ver-lista-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 2rem 0;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.ver-lista-loading-spinner {
+  width: 28px;
+  height: 28px;
+  border: 3px solid var(--border-color);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* --- Divisor --- */
+.ver-lista-divisor {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0.25rem 0;
+}
+
+.ver-lista-divisor::before,
+.ver-lista-divisor::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-color);
+}
+
+.ver-lista-divisor span {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* --- Itens --- */
+.ver-lista-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-top: 0.5rem;
+}
+
+.ver-lista-item-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.75rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 0.65rem;
+}
+
+.ver-lista-item-texto {
+  flex: 1;
+  min-width: 0;
+  font-size: 0.8rem;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ver-lista-item-nome {
+  font-weight: 600;
+}
+
+.ver-lista-item-eq {
+  margin: 0 0.25rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.ver-lista-item-detalhe {
+  color: var(--text-secondary);
+}
+
+/* Check/uncheck button */
+.ver-lista-item-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  color: var(--text-muted);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+}
+
+.ver-lista-item-check:hover {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: rgba(16, 185, 129, 0.4);
+  color: #10b981;
+}
+
+.ver-lista-item-check:active {
+  transform: scale(0.9);
+}
+
+.ver-lista-item-check.checked {
+  color: #f59e0b;
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+.ver-lista-item-check.checked:hover {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+/* Marcado (item pego) */
+.ver-lista-item-row.marcado {
+  opacity: 0.5;
+}
+
+.ver-lista-item-row.marcado .ver-lista-item-texto {
+  text-decoration: line-through;
+}
+
+.ver-lista-item-row.marcado .ver-lista-item-nome,
+.ver-lista-item-row.marcado .ver-lista-item-detalhe,
+.ver-lista-item-row.marcado .ver-lista-item-eq {
+  color: var(--text-muted);
+}
+
+/* --- Lista Vazia --- */
+.ver-lista-vazia {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 2.5rem 1rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.ver-lista-vazia svg {
+  opacity: 0.4;
+  margin-bottom: 0.5rem;
+}
+
+.ver-lista-vazia p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.ver-lista-vazia-hint {
+  font-size: 0.8rem !important;
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+/* --- Botão Encerrar Lista --- */
+.ver-lista-btn-encerrar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.85rem;
+  background: transparent;
+  color: #ef4444;
+  border: 1.5px solid rgba(239, 68, 68, 0.4);
+  border-radius: 0.75rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 0.5rem;
+}
+
+.ver-lista-btn-encerrar:hover {
+  background: rgba(239, 68, 68, 0.08);
+  border-color: #ef4444;
+}
+
+.ver-lista-btn-encerrar:active {
+  transform: scale(0.98);
+}
+
+/* --- Modal de Confirmação --- */
+.ver-lista-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  padding: 1.5rem;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.ver-lista-modal {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  max-width: 340px;
+  width: 100%;
+  animation: modalIn 0.25s ease-out;
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.ver-lista-modal-titulo {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.ver-lista-modal-texto {
+  margin: 0 0 1.25rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.ver-lista-modal-acoes {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.ver-lista-modal-btn {
+  flex: 1;
+  padding: 0.65rem;
+  border-radius: 0.65rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border: none;
+}
+
+.ver-lista-modal-btn.cancelar {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.ver-lista-modal-btn.cancelar:hover {
+  background: var(--border-color);
+}
+
+.ver-lista-modal-btn.confirmar {
+  background: #ef4444;
+  color: white;
+}
+
+.ver-lista-modal-btn.confirmar:hover {
+  background: #dc2626;
+}
+
+.ver-lista-modal-btn:active {
+  transform: scale(0.97);
+}
+
+.ver-lista-modal-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
