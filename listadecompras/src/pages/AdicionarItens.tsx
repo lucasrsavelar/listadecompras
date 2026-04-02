@@ -433,44 +433,50 @@ function AdicionarItens() {
         {itemObj && (
           <>
             <div className="adicionar-itens-detalhe">
-              <span className="adicionar-itens-detalhe-nome">{itemObj.nome_item}</span>
-              <span className="adicionar-itens-detalhe-igual">=</span>
-              <input
-                id="input-quantidade"
-                type="text"
-                inputMode="decimal"
-                className="adicionar-itens-detalhe-qtd"
-                value={quantidade}
-                onChange={(e) => handleQuantidadeChange(e.target.value)}
-                onBlur={handleQuantidadeBlur}
-              />
-              <select
-                id="select-medida"
-                className="adicionar-itens-detalhe-medida"
-                value={medidaSelecionada ?? ''}
-                onChange={(e) => setMedidaSelecionada(Number(e.target.value))}
-              >
-                {medidas?.map((m) => (
-                  <option key={m.id_medida} value={m.id_medida}>
-                    {m.descricao}
-                  </option>
-                ))}
-              </select>
-              <span className="adicionar-itens-detalhe-paren">(</span>
-              <select
-                id="select-observacao"
-                className="adicionar-itens-detalhe-obs"
-                value={observacaoSelecionada ?? ''}
-                onChange={(e) => setObservacaoSelecionada(e.target.value ? Number(e.target.value) : null)}
-              >
-                <option value="">Nenhuma</option>
-                {observacoes?.map((obs) => (
-                  <option key={obs.id_observacao} value={obs.id_observacao}>
-                    {obs.descricao}
-                  </option>
-                ))}
-              </select>
-              <span className="adicionar-itens-detalhe-paren">)</span>
+              <div className="adicionar-itens-detalhe-linha">
+                <span className="adicionar-itens-detalhe-label">Item:</span>
+                <span className="adicionar-itens-detalhe-valor">{itemObj.nome_item}</span>
+              </div>
+              <div className="adicionar-itens-detalhe-linha">
+                <span className="adicionar-itens-detalhe-label">Quantidade:</span>
+                <input
+                  id="input-quantidade"
+                  type="text"
+                  inputMode="decimal"
+                  className="adicionar-itens-detalhe-qtd"
+                  value={quantidade}
+                  onChange={(e) => handleQuantidadeChange(e.target.value)}
+                  onBlur={handleQuantidadeBlur}
+                />
+                <select
+                  id="select-medida"
+                  className="adicionar-itens-detalhe-medida"
+                  value={medidaSelecionada ?? ''}
+                  onChange={(e) => setMedidaSelecionada(Number(e.target.value))}
+                >
+                  {medidas?.map((m) => (
+                    <option key={m.id_medida} value={m.id_medida}>
+                      {m.descricao}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div className="adicionar-itens-detalhe-linha">
+                <span className="adicionar-itens-detalhe-label">Observação:</span>
+                <select
+                  id="select-observacao"
+                  className="adicionar-itens-detalhe-obs"
+                  value={observacaoSelecionada ?? ''}
+                  onChange={(e) => setObservacaoSelecionada(e.target.value ? Number(e.target.value) : null)}
+                >
+                  <option value="">Nenhuma</option>
+                  {observacoes?.map((obs) => (
+                    <option key={obs.id_observacao} value={obs.id_observacao}>
+                      {obs.descricao}
+                    </option>
+                  ))}
+                </select>
+              </div>
             </div>
 
             {/* Botão Adicionar / Atualizar */}
@@ -509,14 +515,22 @@ function AdicionarItens() {
                   key={`${item.id_item}-${index}`}
                   className={`adicionar-itens-lista-row ${editandoIndex === index ? 'editando' : ''}`}
                 >
-                  <span className="adicionar-itens-lista-row-texto">
-                    <span className="adicionar-itens-lista-row-nome">{item.nome_item}</span>
-                    <span className="adicionar-itens-lista-row-eq">=</span>
-                    <span className="adicionar-itens-lista-row-detalhe">
-                      {item.quantidade} {item.descricao_medida}
-                      {item.descricao_observacao && ` (${item.descricao_observacao})`}
-                    </span>
-                  </span>
+                  <div className="adicionar-itens-lista-row-texto">
+                    <div className="adicionar-itens-lista-row-linha">
+                      <span className="adicionar-itens-lista-row-label">Item:</span>
+                      <span className="adicionar-itens-lista-row-valor">{item.nome_item}</span>
+                    </div>
+                    <div className="adicionar-itens-lista-row-linha">
+                      <span className="adicionar-itens-lista-row-label">Quantidade:</span>
+                      <span className="adicionar-itens-lista-row-valor">{item.quantidade} {item.descricao_medida}</span>
+                    </div>
+                    {item.descricao_observacao && (
+                      <div className="adicionar-itens-lista-row-linha">
+                        <span className="adicionar-itens-lista-row-label">Observação:</span>
+                        <span className="adicionar-itens-lista-row-valor">{item.descricao_observacao}</span>
+                      </div>
+                    )}
+                  </div>
                   <button
                     className="adicionar-itens-lista-row-edit"
                     onClick={() => handleEditarItem(index)}

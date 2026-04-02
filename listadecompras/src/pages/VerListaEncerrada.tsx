@@ -111,14 +111,22 @@ function VerListaEncerrada() {
                   key={item.id_lista_item}
                   className={`ver-enc-item-row ${item.is_marcado ? 'marcado' : ''}`}
                 >
-                  <span className="ver-enc-item-texto">
-                    <span className="ver-enc-item-nome">{item.nome_item}</span>
-                    <span className="ver-enc-item-eq">=</span>
-                    <span className="ver-enc-item-detalhe">
-                      {item.quantidade} {item.descricao_medida}
-                      {item.descricao_observacao && ` (${item.descricao_observacao})`}
-                    </span>
-                  </span>
+                  <div className="ver-enc-item-texto">
+                    <div className="ver-enc-item-linha">
+                      <span className="ver-enc-item-label">Item:</span>
+                      <span className="ver-enc-item-valor">{item.nome_item}</span>
+                    </div>
+                    <div className="ver-enc-item-linha">
+                      <span className="ver-enc-item-label">Quantidade:</span>
+                      <span className="ver-enc-item-valor">{item.quantidade} {item.descricao_medida}</span>
+                    </div>
+                    {item.descricao_observacao && (
+                      <div className="ver-enc-item-linha">
+                        <span className="ver-enc-item-label">Observação:</span>
+                        <span className="ver-enc-item-valor">{item.descricao_observacao}</span>
+                      </div>
+                    )}
+                  </div>
                   {item.is_marcado && (
                     <span className="ver-enc-item-check-icon">
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">

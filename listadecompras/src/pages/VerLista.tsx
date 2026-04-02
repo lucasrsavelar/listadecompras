@@ -101,6 +101,9 @@ function VerLista() {
 
       // Invalida caches e volta para Home
       await queryClient.invalidateQueries({ queryKey: queryKeys.listas })
+      if (idLista) {
+        await queryClient.invalidateQueries({ queryKey: queryKeys.listaItens(idLista) })
+      }
       navigate('/')
     } catch (err) {
       console.error('Erro ao encerrar lista:', err)
@@ -172,14 +175,22 @@ function VerLista() {
                 const isMarcado = marcados.has(item.id_lista_item)
                 return (
                   <div key={item.id_lista_item} className={`ver-lista-item-row ${isMarcado ? 'marcado' : ''}`}>
-                    <span className="ver-lista-item-texto">
-                      <span className="ver-lista-item-nome">{item.nome_item}</span>
-                      <span className="ver-lista-item-eq">=</span>
-                      <span className="ver-lista-item-detalhe">
-                        {item.quantidade} {item.descricao_medida}
-                        {item.descricao_observacao && ` (${item.descricao_observacao})`}
-                      </span>
-                    </span>
+                    <div className="ver-lista-item-texto">
+                      <div className="ver-lista-item-linha">
+                        <span className="ver-lista-item-label">Item:</span>
+                        <span className="ver-lista-item-valor">{item.nome_item}</span>
+                      </div>
+                      <div className="ver-lista-item-linha">
+                        <span className="ver-lista-item-label">Quantidade:</span>
+                        <span className="ver-lista-item-valor">{item.quantidade} {item.descricao_medida}</span>
+                      </div>
+                      {item.descricao_observacao && (
+                        <div className="ver-lista-item-linha">
+                          <span className="ver-lista-item-label">Observação:</span>
+                          <span className="ver-lista-item-valor">{item.descricao_observacao}</span>
+                        </div>
+                      )}
+                    </div>
                     <button
                       className={`ver-lista-item-check ${isMarcado ? 'checked' : ''}`}
                       onClick={() => toggleMarcado(item.id_lista_item)}

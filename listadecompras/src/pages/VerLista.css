@@ -159,15 +159,15 @@
 .ver-lista-items {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 0.5rem;
   margin-top: 0.5rem;
 }
 
 .ver-lista-item-row {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.6rem 0.75rem;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem;
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 0.65rem;
@@ -176,25 +176,27 @@
 .ver-lista-item-texto {
   flex: 1;
   min-width: 0;
-  font-size: 0.8rem;
-  color: var(--text-primary);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
 }
 
-.ver-lista-item-nome {
-  font-weight: 600;
+.ver-lista-item-linha {
+  display: flex;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
 }
 
-.ver-lista-item-eq {
-  margin: 0 0.25rem;
-  font-weight: 700;
+.ver-lista-item-label {
   color: var(--text-muted);
+  font-weight: 500;
+  flex-shrink: 0;
 }
 
-.ver-lista-item-detalhe {
-  color: var(--text-secondary);
+.ver-lista-item-valor {
+  color: var(--text-primary);
+  font-weight: 600;
 }
 
 /* Check/uncheck button */
@@ -210,6 +212,7 @@
   color: var(--text-muted);
   cursor: pointer;
   flex-shrink: 0;
+  margin-top: 0.15rem;
   transition: all 0.15s ease;
 }
 
@@ -242,9 +245,8 @@
   text-decoration: line-through;
 }
 
-.ver-lista-item-row.marcado .ver-lista-item-nome,
-.ver-lista-item-row.marcado .ver-lista-item-detalhe,
-.ver-lista-item-row.marcado .ver-lista-item-eq {
+.ver-lista-item-row.marcado .ver-lista-item-valor,
+.ver-lista-item-row.marcado .ver-lista-item-label {
   color: var(--text-muted);
 }
 
