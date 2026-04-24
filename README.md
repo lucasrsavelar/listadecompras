@@ -51,25 +51,33 @@ VITE_SUPABASE_ANON_KEY=your-anon-key
 
 4. Crie o banco de dados e as tabelas no Supabase (utilize o arquivo DATABASE.md como referência)
 
-5. Gere a APK para instalação no celular. Sugestão: usar o EAS Build
+5. Gere a APK para instalação no celular. Sugestão: empacotar o projeto web como um app mobile usando o Capacitor. Para isso, você vai precisar do Android Studio instalado.
 
 ```bash
-# 1. Instalar o EAS CLI
-npm install -g eas-cli
+# 1. Instalar o Capacitor
+npm install @capacitor/core @capacitor/cli @capacitor/android
 
-# 2. Login na conta Expo (crie em expo.dev se não tiver)
-eas login
+# 2. Iniciar o Capacitor
+npx cap init "Lista de Compras" "com.seunome.listadecompras" --web-dir dist
 
-# 3. Configurar o projeto (só na primeira vez)
-eas build:configure
+# 3. Buildar o projeto web
+npm run build
 
-# 4. Gerar o APK
-eas build --platform android --profile preview
+# 4. Adicionar a plataforma Android
+npx cap add android
+
+# 5. Sincronizar o build com o Android
+npx cap sync
+
+# 6. Abrir o Android Studio
+npx cap open android
 ```
 
-6. Instale a APK gerada no celular para começar a usar o aplicativo.
+6. No Android Studio, aguarde o Gradle sync terminar e clique em **Build** > **Generate App Bundles or APK...** > **Generate APKs**. Quando o build terminar, aparecerá uma notificação no canto inferior direito com o link "locate". Clique para abrir a pasta com o APK.
 
-7. Alternativamente, inicie o servidor de desenvolvimento no computador para testes locais:
+7. Instale a APK gerada no celular para começar a usar o aplicativo.
+
+8. Alternativamente, inicie o servidor de desenvolvimento no computador para testes locais:
 
 ```bash
 npm run dev
