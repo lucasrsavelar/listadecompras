@@ -17,7 +17,11 @@ function dataHoje(): string {
 // Validação: somente letras, números, espaços e barra /
 const NOME_REGEX = /^[a-zA-ZÀ-ÿ0-9 /]*$/
 
-function CriarListaForm() {
+interface CriarListaFormProps {
+  disabled?: boolean
+}
+
+function CriarListaForm({ disabled }: CriarListaFormProps) {
   const navigate = useNavigate()
   const queryClient = useQueryClient()
 
@@ -101,6 +105,7 @@ function CriarListaForm() {
         className="home-fab"
         onClick={() => setAberto(true)}
         aria-label="Criar nova lista"
+        disabled={disabled}
       >
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
           <line x1="12" y1="5" x2="12" y2="19" />

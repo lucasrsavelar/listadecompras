@@ -233,6 +233,9 @@ function AdicionarItens() {
     setObservacaoSelecionada(item.id_observacao)
     setEditandoIndex(index)
     setBusca('')
+    
+    // Rola para o topo da página suavemente
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   function handleRemoverItem(index: number) {

@@ -1,6 +1,6 @@
 # 🛒 Lista de Compras
 
-Aplicação web para gerenciar suas listas de compras de mercado, com foco em uso pelo celular.
+Aplicação web para gerenciar suas listas de compras de mercado, com foco em uso pelo celular. Construída a partir da prática do vibecoding (IDE Antigravity com Claude Opus 4.6 e Gemini 3.1 Pro) para ser uma solução simples, rápida e prática para um problema comum.
 
 ## O que faz?
 

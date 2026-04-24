@@ -117,7 +117,7 @@ function Home() {
       </main>
 
       {/* Formulário de criação */}
-      <CriarListaForm />
+      <CriarListaForm disabled={Boolean(temListas)} />
     </div>
   )
 }

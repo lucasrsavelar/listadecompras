@@ -117,7 +117,9 @@
 }
 
 @keyframes verEncSpin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* --- Divisor --- */
@@ -188,8 +190,8 @@
   font-weight: 600;
 }
 
-/* Check icon for marked items */
-.ver-enc-item-check-icon {
+/* Icon for items */
+.ver-enc-item-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -197,21 +199,23 @@
   height: 22px;
   flex-shrink: 0;
   margin-top: 0.15rem;
+}
+
+.ver-enc-item-icon.marcado {
   color: #10b981;
 }
 
-/* Marcado */
+.ver-enc-item-icon.desmarcado {
+  color: #ef4444;
+}
+
+/* Marcado/Desmarcado Cards */
 .ver-enc-item-row.marcado {
-  opacity: 0.55;
+  border-color: rgba(16, 185, 129, 0.4);
 }
 
-.ver-enc-item-row.marcado .ver-enc-item-texto {
-  text-decoration: line-through;
-}
-
-.ver-enc-item-row.marcado .ver-enc-item-valor,
-.ver-enc-item-row.marcado .ver-enc-item-label {
-  color: var(--text-muted);
+.ver-enc-item-row.desmarcado {
+  border-color: rgba(239, 68, 68, 0.4);
 }
 
 /* --- Vazia --- */
